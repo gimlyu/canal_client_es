@@ -1,0 +1,31 @@
+# 应用名称
+spring:
+  application:
+      name: canal_client_es
+  elasticsearch:
+    rest:
+      # es 地址
+      uris: http://192.168.244.11:9200
+      username: elastic
+      password: elastic
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: defaultDataSource
+#    url: jdbc:mysql://192.168.244.17:3306/canal_test?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://192.168.244.17:3306/canal_test?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+
+server:
+    port: 8080
+
+# canal服务端地址
+canal:
+  server: 192.168.244.22:11111
+  # 实例名，与deployer中配置的保持统一
+  destination: es
+
+# 设置canal消息日志打印级别
+logging:
+  level:
+    top.javatool.canal.client: warn
